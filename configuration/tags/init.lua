@@ -5,8 +5,8 @@ local apps = require('configuration.apps')
 
 local tags = {
   {
-    icon = icons.chrome,
-    type = 'chrome',
+    icon = icons.brave,
+    type = 'brave',
     defaultApp = apps.default.browser,
     screen = 1
   },
