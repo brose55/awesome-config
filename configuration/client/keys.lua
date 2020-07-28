@@ -14,9 +14,19 @@ local clientKeys =
     end,
     {description = 'toggle fullscreen', group = 'client'}
   ),
+  -- start blaze customs
+  awful.key(
+    { modkey, "Control" },
+    "Return",
+    function (c)
+      c:swap(awful.client.getmaster())
+    end,
+    {description = "move to master", group = "client"}
+  ),
+  -- end blaze customs
   awful.key(
     {modkey},
-    'q',
+    'Escape',
     function(c)
       c:kill()
     end,

@@ -23,7 +23,7 @@ local awesome_overrides =
   theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
 
   theme.icons = theme.dir .. '/icons/'
-  theme.wallpaper = theme.dir .. '/wallpapers/DarkCyan.png'
+  theme.wallpaper = theme.dir .. '/wallpapers/parrot.jpg'
   --theme.wallpaper = '#e0e0e0'
   theme.font = 'Roboto medium 10'
   theme.title_font = 'Roboto medium 14'
@@ -96,7 +96,7 @@ local awesome_overrides =
   theme.tasklist_fg_urgent = theme.fg_normal
   theme.tasklist_fg_normal = '#AAAAAA'
 
-  theme.icon_theme = 'Papirus-Dark'
+  theme.icon_theme = 'candy-icons'
 
   --Client
   theme.border_width = dpi(2)

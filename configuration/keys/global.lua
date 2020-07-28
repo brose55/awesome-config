@@ -12,15 +12,15 @@ local globalKeys =
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'show help', group = 'awesome'}),
   -- Tag browsing
-  awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  awful.key({modkey}, ',', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  awful.key({modkey}, 'o', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
-  awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
+  awful.key({altkey, 'Control'}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
   -- Default client focus
   awful.key(
     {modkey},
-    'd',
+    's',
     function()
       awful.client.focus.byidx(1)
     end,
@@ -28,7 +28,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey},
-    'a',
+    'h',
     function()
       awful.client.focus.byidx(-1)
     end,
@@ -38,12 +38,12 @@ local globalKeys =
     {modkey},
     'r',
     function()
-      _G.screen.primary.left_panel:toggle(true)
+      awful.spawn('rofi -show')
     end,
     {description = 'show main menu', group = 'awesome'}
   ),
   awful.key(
-    {altkey},
+    {modkey},
     'space',
     function()
       _G.screen.primary.left_panel:toggle(true)
@@ -136,7 +136,7 @@ local globalKeys =
   -- Standard program
   awful.key(
     {modkey},
-    'x',
+    'Return',
     function()
       awful.util.spawn_with_shell(apps.default.terminal)
     end,
@@ -209,7 +209,7 @@ local globalKeys =
     {description = 'decrease the number of columns', group = 'layout'}
   ),
   awful.key(
-    {modkey},
+    {altkey},
     'space',
     function()
       awful.layout.inc(1)
@@ -336,7 +336,7 @@ local globalKeys =
   -- Screen management
   awful.key(
     {modkey},
-    'o',
+    'w',
     awful.client.movetoscreen,
     {description = 'move window to next screen', group = 'client'}
   ),
