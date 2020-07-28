@@ -1,0 +1,4 @@
+setxkbmap -option caps:swapescape
+sudo apt install i3lock-fancy
+sudo apt install xfce4-power-manager
+localectl set-x11-keymap us "" dvorak caps:swapescape

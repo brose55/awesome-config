@@ -1,0 +1,4 @@
+lock screen - cinnamon-screensaver-command -l
+lock screen, turn off monitor - cinnamon-screensaver-command -l; xset dpms force off
+
+suspend - systemctl suspend
