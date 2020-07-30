@@ -17,6 +17,16 @@ local globalKeys =
   awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
+  -- blaze customs
+  awful.key(
+    { modkey, "Control" },
+    "x",
+    function ()
+      awful.spawn.with_shell(apps.default.lock .. ' & systemctl suspend')
+    end,
+    {description = "suspend", group = "awesome"}
+  ),
+  -- end blaze customs
   -- Default client focus
   awful.key(
     {modkey},
@@ -75,7 +85,7 @@ local globalKeys =
     end,
     {description = 'Switch to previous window', group = 'client'}
   ),
-  -- Programms
+  -- Programs
   awful.key(
     {modkey},
     'l',
