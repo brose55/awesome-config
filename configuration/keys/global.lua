@@ -26,6 +26,14 @@ local globalKeys =
     end,
     {description = "suspend", group = "awesome"}
   ),
+  awful.key(
+    { modkey, "Control" },
+    "Escape",
+    function ()
+      awful.spawn.with_shell('poweroff')
+    end,
+    {description = "poweroff", group = "awesome"}
+  ),
   -- end blaze customs
   -- Default client focus
   awful.key(
