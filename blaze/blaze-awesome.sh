@@ -6,6 +6,6 @@ git clone https://github.com/brose55/awesome-config.git ~/.config/awesome
 
 cat ~/.config/awesome/blaze/xinit.txt > ~/.xinitrc
 
-cat ~/.config/awesome/blaze/fish.txt >> ~/.config/fish/config.fish
+cat ~/.config/awesome/blaze/fish.txt >> ~/.config/fish/conf.d/omf.fish
 
 localectl set-x11-keymap us "" dvorak caps:swapescape
