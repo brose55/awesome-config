@@ -1,0 +1,1 @@
+localectl set-x11-keymap us "" dvorak caps:swapescape
