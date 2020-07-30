@@ -2,7 +2,7 @@ local awful = require('awful')
 require('awful.autofocus')
 local beautiful = require('beautiful')
 local hotkeys_popup = require('awful.hotkeys_popup').widget
-
+local naughty = require('naughty')
 local modkey = require('configuration.keys.mod').modKey
 local altkey = require('configuration.keys.mod').altKey
 local apps = require('configuration.apps')
@@ -33,6 +33,14 @@ local globalKeys =
       awful.spawn.with_shell('poweroff')
     end,
     {description = "poweroff", group = "awesome"}
+  ),
+  awful.key(
+    { modkey, "Control" },
+    ";",
+    function ()
+      awful.spawn.with_shell('reboot')
+    end,
+    {description = "reboot", group = "awesome"}
   ),
   -- end blaze customs
   -- Default client focus
@@ -156,9 +164,9 @@ local globalKeys =
     {modkey},
     'Return',
     function()
-      awful.util.spawn_with_shell(apps.default.terminal)
+      awful.util.spawn_with_shell(apps.default.fish)
     end,
-    {description = 'open a terminal', group = 'launcher'}
+    {description = 'open terminator', group = 'launcher'}
   ),
   awful.key({modkey, 'Control'}, 'r', _G.awesome.restart, {description = 'reload awesome', group = 'awesome'}),
   awful.key({modkey, 'Control'}, 'q', _G.awesome.quit, {description = 'quit awesome', group = 'awesome'}),
@@ -260,7 +268,7 @@ local globalKeys =
     {modkey},
     'z',
     function()
-      _G.toggle_quake()
+      awful.spawn.with_shell(apps.default.terminal)
     end,
     {description = 'dropdown application', group = 'launcher'}
   ),
@@ -286,28 +294,31 @@ local globalKeys =
     {description = 'show weather', group = 'widgets'}
   ),--]]
   -- Brightness
-  awful.key(
-    {},
-    'XF86MonBrightnessUp',
-    function()
-      awful.spawn('xbacklight -inc 10')
-    end,
-    {description = '+10%', group = 'hotkeys'}
-  ),
-  awful.key(
-    {},
-    'XF86MonBrightnessDown',
-    function()
-      awful.spawn('xbacklight -dec 10')
-    end,
-    {description = '-10%', group = 'hotkeys'}
-  ),
+  -- awful.key(
+  --   {},
+  --   'XF86MonBrightnessUp',
+  --   function()
+  --     awful.spawn('brightnessctl set +10%')
+  --     naughty.notify { text = "brightness up"}
+  --   end,
+  --   {description = '+10%', group = 'hotkeys'}
+  -- ),
+  -- awful.key(
+  --   {},
+  --   'XF86MonBrightnessDown',
+  --   function()
+  --     awful.spawn('brightnessctl set 10%-')
+  --     naughty.notify { text = "brightness down"}
+  --   end,
+  --   {description = '-10%', group = 'hotkeys'}
+  -- ),
   -- ALSA volume control
   awful.key(
     {},
     'XF86AudioRaiseVolume',
     function()
       awful.spawn('amixer -D pulse sset Master 5%+')
+      naughty.notify { text = "volume up"}
     end,
     {description = 'volume up', group = 'hotkeys'}
   ),
@@ -316,6 +327,7 @@ local globalKeys =
     'XF86AudioLowerVolume',
     function()
       awful.spawn('amixer -D pulse sset Master 5%-')
+      naughty.notify { text = "volume down"}
     end,
     {description = 'volume down', group = 'hotkeys'}
   ),

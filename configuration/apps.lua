@@ -8,10 +8,10 @@ local rofi_command = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. wit
 return {
   -- List of apps to start by default on some actions
   default = {
-    terminal = 'terminator',
+    terminal = 'gnome-terminal',
     rofi = rofi_command,
     lock = 'i3lock-fancy',
-    quake = 'terminator',
+    fish = 'terminator',
     screenshot = '~/.config/awesome/configuration/utils/screenshot -m',
     region_screenshot = '~/.config/awesome/configuration/utils/screenshot -r',
     delayed_screenshot = 'sleep 10 ; ~/.config/awesome/configuration/utils/screenshot -r',
@@ -31,7 +31,7 @@ return {
     'compton --config ' .. filesystem.get_configuration_dir() .. '/configuration/compton.conf',
     'nm-applet --indicator', -- wifi
     --'blueberry-tray', -- Bluetooth tray icon
-    'xfce4-power-manager', -- Power manager
+    -- 'xfce4-power-manager', -- Power manager
     'ibus-daemon --xim --daemonize', -- Ibus daemon for keyboard
     'scream-start', -- scream audio sink
     'numlockx on', -- enable numlock
