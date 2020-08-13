@@ -2,10 +2,11 @@ local filesystem = require('gears.filesystem')
 local mat_colors = require('theme.mat-colors')
 local theme_dir = filesystem.get_configuration_dir() .. '/theme'
 local dpi = require('beautiful').xresources.apply_dpi
+local beautiful = require('beautiful')
 
 local theme = {}
 theme.icons = theme_dir .. '/icons/'
-theme.font = 'Roboto medium 10'
+beautiful.font = 'Ubuntu medium 36'
 
 -- Colors Pallets
 
@@ -20,6 +21,9 @@ theme.background = mat_colors.blue_grey
 
 theme.background.hue_800 = '#192933'
 theme.background.hue_900 = '#121e25'
+
+-- Icons
+theme.icons = 'candy-icons'
 
 local awesome_overrides = function(theme)
   --
